@@ -333,7 +333,7 @@
           </div>
 
           <nav class="post-nav" th:with="postCursor = ${postFinder.cursor(post.metadata.name)}">
-            <a th:if="${postCursor.hasNext()}" th:href="@{${postCursor.next.status.permalink}}" class="post-nav-item prev">
+            <a th:if="${postCursor.hasPrevious()}" th:href="@{${postCursor.previous.status.permalink}}" class="post-nav-item prev">
               <div class="post-nav-arrow">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M15 18l-6-6 6-6"/>
@@ -341,10 +341,10 @@
               </div>
               <div class="post-nav-content">
                 <span class="post-nav-label">上一篇</span>
-                <span class="post-nav-title" th:text="${postCursor.next.spec.title}">上一篇文章</span>
+                <span class="post-nav-title" th:text="${postCursor.previous.spec.title}">上一篇文章</span>
               </div>
             </a>
-            <span th:unless="${postCursor.hasNext()}" class="post-nav-item prev post-nav-empty">
+            <span th:unless="${postCursor.hasPrevious()}" class="post-nav-item prev post-nav-empty">
               <div class="post-nav-arrow">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M15 18l-6-6 6-6"/>
@@ -352,13 +352,13 @@
               </div>
               <div class="post-nav-content">
                 <span class="post-nav-label">上一篇</span>
-                <span class="post-nav-title">已经是最新文章啦~</span>
+                <span class="post-nav-title">已经是最早文章啦~</span>
               </div>
             </span>
-            <a th:if="${postCursor.hasPrevious()}" th:href="@{${postCursor.previous.status.permalink}}" class="post-nav-item next">
+            <a th:if="${postCursor.hasNext()}" th:href="@{${postCursor.next.status.permalink}}" class="post-nav-item next">
               <div class="post-nav-content">
                 <span class="post-nav-label">下一篇</span>
-                <span class="post-nav-title" th:text="${postCursor.previous.spec.title}">下一篇文章</span>
+                <span class="post-nav-title" th:text="${postCursor.next.spec.title}">下一篇文章</span>
               </div>
               <div class="post-nav-arrow">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -366,10 +366,10 @@
                 </svg>
               </div>
             </a>
-            <span th:unless="${postCursor.hasPrevious()}" class="post-nav-item next post-nav-empty">
+            <span th:unless="${postCursor.hasNext()}" class="post-nav-item next post-nav-empty">
               <div class="post-nav-content">
                 <span class="post-nav-label">下一篇</span>
-                <span class="post-nav-title">已经是最后一篇啦~</span>
+                <span class="post-nav-title">已经是最新文章啦~</span>
               </div>
               <div class="post-nav-arrow">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

@@ -59,8 +59,7 @@
           <span class="category-title-icon" th:data-slug="${category.spec.slug}"></span>
           <span th:text="${category.spec.displayName}">技术分享</span>
         </h1>
-        <p class="page-desc" th:if="${posts.total}">共 <span th:text="${posts.total}">18</span> 篇文章</p>
-        <p class="page-desc" th:unless="${posts.total}">共 18 篇文章</p>
+        <p class="page-desc">共 <span th:text="${posts.total ?: 0}">0</span> 篇文章</p>
       </header>
       <script th:inline="javascript">
         (function() {

@@ -60,7 +60,7 @@
           <div class="category-info">
             <h2 class="category-name" th:text="${category.spec.displayName}">分类名称</h2>
             <span class="category-count">
-              <span th:text="${category.status.postCount}">0</span> 篇文章
+              <span th:text="${category.status.postCount ?: 0}">0</span> 篇文章
             </span>
           </div>
           <th:block th:replace="~{modules/watermark :: watermark('category-watermark')}" />
